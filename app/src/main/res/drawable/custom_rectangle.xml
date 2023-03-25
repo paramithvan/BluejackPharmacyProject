@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <stroke
+        android:width="3dp"
+        android:color="@color/BiruLangit"/>
+
+    <corners
+        android:radius="35dp"
+        android:bottomRightRadius="0dp"
+        android:bottomLeftRadius="0dp"/>
+    <solid
+        android:color="@color/BiruLangit"/>
+    <size
+        android:width="360dp"
+        android:height="301dp"/>
+
+
+
+</shape>

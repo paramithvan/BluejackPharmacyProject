@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BluejackPharmacyProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_judul">Home</string>
+    <string name="transaction_judul">Transaction</string>
+    <string name="about_judul">About Us</string>
+
+</resources>

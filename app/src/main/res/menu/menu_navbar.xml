@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home_button"
+        android:icon="@drawable/home_clear"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/transaction_button"
+        android:icon="@drawable/outline_receipt_long_24"
+        android:title="Transaction" />
+
+    <item
+        android:id="@+id/aboutUs_button"
+        android:icon="@drawable/info_logo"
+        android:title="About Us" />
+
+
+
+</menu>
