@@ -12,38 +12,21 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="634dp"
+        android:layout_height="715dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="93dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="58dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        tools:listitem="@layout/rc_obat"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/navbar_background"
-        android:elevation="2dp"
-        app:menu="@menu/menu_navbar"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@drawable/select_item"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"/>
+        tools:listitem="@layout/rc_obat" />
 
 
     <ImageView
@@ -54,7 +37,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="333dp"
-        app:srcCompat="@drawable/logo2" />
+        android:src="@drawable/logo2"/>
 
     <TextView
         android:id="@+id/avail_text"
@@ -63,10 +46,26 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto_bold"
+        android:fontFamily="@font/inter_bold"
         android:text="Available Medicines"
         android:textColor="@color/BiruLogo"
-        android:textSize="20sp" />
+        android:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/logout_home"
+        style="?android:borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/avail_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="-6dp"
+        android:contentDescription="logout button di home"
+        android:src="@drawable/logout_button"
+        app:tint="@color/BiruLangit"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
 </RelativeLayout>

@@ -15,9 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bluejackpharmacyproject.data.DataApp;
+import com.example.bluejackpharmacyproject.data.UserData;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
     EditText email;
     EditText password;
     Button loginButton;
@@ -34,15 +38,29 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.LoginButton);
         gotoRegisButton = findViewById(R.id.goto_regis_button);
 
+        if(DataApp.getMedData().isEmpty()){
+            DataApp.getInstance().DataList();
+        }
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (email.getText().toString().isEmpty()){
+                if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()){
+                    Toast.makeText(MainActivity.this, "Please fill all of the form", Toast.LENGTH_SHORT).show();
+                } else if (!email.getText().toString().endsWith(".com")){
                     Toast.makeText(MainActivity.this, "Please fill your email", Toast.LENGTH_SHORT).show();
                 }else{
-                    Intent intent = new Intent(MainActivity.this, HOME.class);
-                    startActivities(new Intent[]{intent});
+                  for (UserData userData : DataApp.getInstance().getUserList()){
+                        if (userData.getEmail().matches(email.getText().toString())){
+                            if (userData.getPassword().matches(password.getText().toString())){
+                                DataApp.getInstance().setUserIdNow(userData.getId());
+                                Toast.makeText(MainActivity.this, "Welcome back!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(MainActivity.this, HOME.class);
+                                startActivity(intent);
+                            }
+                        }
+                  }
                 }
             }
         });

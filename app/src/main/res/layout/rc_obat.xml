@@ -6,6 +6,7 @@
     android:layout_height="120dp"
     android:layout_marginHorizontal="14dp"
     android:layout_marginVertical="8dp"
+    android:clickable="true"
     app:cardCornerRadius="25dp"
     app:cardElevation="35dp"
     app:cardBackgroundColor="@color/SageGreen">
@@ -41,20 +42,20 @@
 
         <TextView
             android:id="@+id/price"
-            android:layout_width="59dp"
-            android:layout_height="59dp"
+            android:layout_width="150dp"
+            android:layout_height="34dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="166dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="-18dp"
             android:layout_toEndOf="@+id/image_obat"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/black"
+            android:fontFamily="@font/inter_bold"
+            android:text="Price"
             android:textAlignment="center"
-            android:text="Price" />
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/pabrik"
@@ -62,11 +63,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="0dp"
             android:layout_toEndOf="@+id/image_obat"
-            android:fontFamily="sans-serif-light"
+            android:fontFamily="@font/inter_medium"
             android:text="Manufacture"
             android:textColor="@color/black"/>
 

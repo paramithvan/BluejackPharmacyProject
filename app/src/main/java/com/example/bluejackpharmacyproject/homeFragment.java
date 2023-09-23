@@ -1,5 +1,6 @@
 package com.example.bluejackpharmacyproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,16 +11,25 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+import com.example.bluejackpharmacyproject.data.DataApp;
+import com.example.bluejackpharmacyproject.data.MedicineData;
 
 import java.util.ArrayList;
 
 public class homeFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    ArrayList<RCModel> modelArrayList;
+    ArrayList<MedicineData> modelArrayList;
     RCAdapter rcAdapter;
+    ImageButton logout_home;
 
     private  String[] title;
     private int[] image;
@@ -42,59 +52,23 @@ public class homeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        dataInitialize();
-        recyclerView = view.findViewById(R.id.recylerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
+        recyclerView = view.findViewById(R.id.RecyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         recyclerView.setHasFixedSize(true);
+
+        modelArrayList = DataApp.getMedData();
 
         rcAdapter = new RCAdapter(getContext(), modelArrayList);
         recyclerView.setAdapter(rcAdapter);
         rcAdapter.notifyDataSetChanged();
 
-    }
+        logout_home = view.findViewById(R.id.logout_home);
+        logout_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }}
 
-    private void dataInitialize() {
-        modelArrayList = new ArrayList<>();
-
-        String[] title = new String[]{
-                "Iliadin Nasal Spray",
-                "Sanadryl Sirup",
-                "Panadol Cold & Flu",
-                "Longatin 50 mg",
-                "Apolar 0.5 mg/g Cream",
-                "Grantusif",
-                "Minosep Obat Kumur 0.2%",
-                "Cefixime 200 mg"
-        };
-
-        int[] image = new int[]{
-                R.drawable.iliadin, R.drawable.sanadryl,R.drawable.panadol,
-                R.drawable.longatine, R.drawable.apolar, R.drawable.gratusif,
-                R.drawable.minosep, R.drawable.cefixime
-        };
-
-        String[] price = new String[]{
-                "Rp 61.300","Rp 32.400",
-                "Rp 11.000","Rp 40.000",
-                "Rp 43.500","Rp 5.000",
-                "Rp 43.400","Rp 15.000",
-        };
-
-        String[] pabrik = new String[]{
-                "Merck Indonesia",
-                "Sanbe Farma",
-                "Sterling",
-                "Actavis",
-                "Actavis",
-                "Graha Farma",
-                "Minorock Mandiri",
-                "Generic Manufacturer"
-        };
-
-        for (int i = 0; i < title.length; i++){
-            RCModel rcModel = new RCModel(title[i],image[i], pabrik[i], price[i]);
-            modelArrayList.add(rcModel);
-        }
-
-    }
-}

@@ -16,23 +16,24 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.bluejackpharmacyproject.data.DataApp;
+import com.example.bluejackpharmacyproject.data.MedicineData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
 public class HOME extends FragmentActivity {
 
-
     BottomNavigationView navbar;
-
-    homeFragment pageHome = new homeFragment();
-    TransactionFragment transactionPage = new TransactionFragment();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        ArrayList<MedicineData> MedList = DataApp.getInstance().getMedData();
+
+
 
         navbar = findViewById(R.id.bottom_navbar);
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new homeFragment()).commit();
@@ -57,22 +58,4 @@ public class HOME extends FragmentActivity {
 
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_atas, menu);
-
-        MenuItem item = menu.findItem(R.id.logout_menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent = new Intent(HOME.this, MainActivity.class);
-        startActivities(new Intent[]{intent});
-
-        return super.onOptionsItemSelected(item);
-    }
 }

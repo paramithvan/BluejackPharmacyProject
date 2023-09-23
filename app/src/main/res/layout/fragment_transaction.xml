@@ -1,19 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TransactionFragment"
-    android:background="@color/Beige">
+    android:background="@drawable/latar_homedkk"
+    android:orientation="horizontal">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/logo_pharmacy"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="333dp"
+        android:src="@drawable/logo2" />
+
     <TextView
+        android:id="@+id/trans_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/transaction_judul"
-        android:textSize="30sp"
-        android:textColor="@color/BiruLaut"
-        android:textStyle="bold"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Transaction History"
+        android:textColor="@color/BiruLogo"
+        android:textSize="14sp" />
 
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/logout_transaction"
+        style="?android:borderlessButtonStyle"
+        app:tint="@color/BiruLangit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/trans_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-8dp"
+        android:src="@drawable/logout_button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RC_trans"
+        android:layout_width="match_parent"
+        android:layout_height="572dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/rc_transaction" />
+</RelativeLayout>

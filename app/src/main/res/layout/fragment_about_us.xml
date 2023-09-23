@@ -1,18 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AboutUsFragment"
-    android:background="@color/SageGreen">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/about_judul"
-        android:textSize="30sp"
-        android:textColor="@color/BiruLaut"
-        android:textStyle="bold"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/latar_homedkk"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/title_aboutUs"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="51dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="About Us"
+            android:textAlignment="center"
+            android:textColor="@color/BiruLangit"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/logout_aboutUs"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="13dp"
+            android:layout_toEndOf="@+id/title_aboutUs"
+            android:contentDescription="logout Button"
+            android:src="@drawable/logout_button" />
+
+        <ImageView
+            android:id="@+id/logo_aboutUs"
+            android:layout_width="45dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="39dp"
+            android:src="@drawable/logo2" />
+
+        <ImageView
+            android:id="@+id/logoFull_aboutUs"
+            android:layout_width="275dp"
+            android:layout_height="123dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="74dp"
+            android:layout_marginTop="104dp"
+            android:layout_marginEnd="62dp"
+            android:src="@drawable/logo_bluejack_pharmacy" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logoFull_aboutUs"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/paragraf1_aboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/BiruLangit"
+                android:fontFamily="@font/inter_medium"
+                android:justificationMode="inter_word"
+                android:text="Bluejack Pharmacy was founded in 2023 as an online pharmacy app that extends the service of its offline counterpart established since 2010 at 15 Anggrek Street, Kebon Jeruk. With a mission to provide easy access to medicines, supplements, and health-related products, Bluejack Pharmacy offers a wide range of pharmaceutical products that can be easily ordered through the mobile app or website."
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/pertanyaan_tv_aboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/paragraf1_aboutUs"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Why You Have to Choose Us?"
+                android:textColor="@color/LawGreen" />
+
+            <TextView
+                android:id="@+id/alesan_aboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pertanyaan_tv_aboutUs"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:justificationMode="inter_word"
+                android:text="At Bluejack Pharmacy, we prioritize the quality of our service and the satisfaction of our customers. Our team of licensed pharmacists ensures that all medications are genuine, stored and handled properly, and delivered to our customers in a timely and discreet manner. In addition, our app and website are designed with a user-friendly interface, allowing customers to easily browse and search for products, track their orders, and access information on health and wellness."
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/alesan_aboutUs"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Our Location"
+                android:textColor="@color/LawGreen" />
+
+            <ImageView
+                android:id="@+id/maps"
+                android:layout_width="332dp"
+                android:layout_height="229dp"
+                android:layout_marginLeft="43dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ourlocation" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

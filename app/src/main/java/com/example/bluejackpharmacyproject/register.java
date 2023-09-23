@@ -4,11 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.bluejackpharmacyproject.data.DataApp;
+import com.example.bluejackpharmacyproject.data.UserData;
+
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class register extends AppCompatActivity {
 
@@ -17,6 +24,8 @@ public class register extends AppCompatActivity {
     EditText email_regis;
     EditText pass_regis;
     EditText confirmPass_regis;
+
+    ArrayList<UserData> userData = new ArrayList<>();
 
     Button register_btn;
     Button goto_login;
@@ -43,12 +52,25 @@ public class register extends AppCompatActivity {
                 if (name.getText().toString().isEmpty() & phoneNum.getText().toString().isEmpty()
                 & email_regis.getText().toString().isEmpty() & pass_regis.getText().toString().isEmpty()& confirmPass_regis.getText().toString().isEmpty()){
                     Toast.makeText(register.this, "Please fill all required form", Toast.LENGTH_SHORT).show();
+                    return;
                 } else if (name.getText().toString().length() < 5) {
                     Toast.makeText(register.this, "Name length must be greater than 5", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (!email_regis.getText().toString().endsWith(".com")) {
+                    Toast.makeText(register.this, "Email must ends with .com", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (!Pattern.compile("^[a-zA-Z0-9_]*$").matcher(pass_regis.getText().toString()).matches()) {
+                    Toast.makeText(register.this, "Password must be alphanumeric", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (!pass_regis.getText().toString().matches(confirmPass_regis.getText().toString())) {
+                    Toast.makeText(register.this, "Passwords don't match, please try again", Toast.LENGTH_SHORT).show();
+                    return;
                 } else{
+                    userData.add(new UserData(DataApp.getInstance().getUserList().size(), name.getText().toString(), phoneNum.getText().toString(), email_regis.getText().toString(), pass_regis.getText().toString()));
                     Intent intent = new Intent(register.this, HOME.class);
                     startActivities(new Intent[]{intent});
                 }
+
             }
         });
 

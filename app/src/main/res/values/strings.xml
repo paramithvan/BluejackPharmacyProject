@@ -4,5 +4,6 @@
     <string name="home_judul">Home</string>
     <string name="transaction_judul">Transaction</string>
     <string name="about_judul">About Us</string>
+    <string name="Logout_button">LogOut</string>
 
 </resources>
